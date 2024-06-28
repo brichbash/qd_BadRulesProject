@@ -1,7 +1,6 @@
 name: Qodana
 
 on:
-  push:
   pull_request:
 jobs:
   build:
@@ -29,7 +28,6 @@ jobs:
 
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2024.1.5
-        if: github.event_name == 'pull_request' || github.event.pull_request.merged == true
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         with:
